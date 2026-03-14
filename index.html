@@ -104,6 +104,7 @@
         .nav-menu {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-link {
@@ -485,7 +486,34 @@
         }
 
         /* ============ RESPONSIVE DESIGN ============ */
+        @media (max-width: 1024px) {
+            .hero {
+                gap: 2rem;
+                padding: 4rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content {
+                gap: 2rem;
+            }
+
+            .contact-content {
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .header-content {
+                padding: 0 1.5rem;
+            }
+
             .menu-toggle {
                 display: flex;
             }
@@ -497,7 +525,7 @@
                 flex-direction: column;
                 background: white;
                 width: 100%;
-                padding: 2rem;
+                padding: 1.5rem;
                 gap: 1rem;
                 box-shadow: var(--shadow);
                 max-height: 0;
@@ -506,7 +534,12 @@
             }
 
             .nav-menu.active {
-                max-height: 500px;
+                max-height: 400px;
+            }
+
+            .nav-link {
+                padding: 0.75rem 0;
+                font-size: 1rem;
             }
 
             .nav-link::after {
@@ -515,74 +548,366 @@
 
             .hero {
                 grid-template-columns: 1fr;
-                padding: 3rem 0;
+                padding: 2.5rem 0;
                 min-height: auto;
                 gap: 2rem;
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                line-height: 1.2;
             }
 
             .hero-content p {
                 font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .placeholder-image {
+                height: 300px;
+                aspect-ratio: auto;
+            }
+
+            #servicos, #tecnologia {
+                padding: 4rem 0;
             }
 
             #servicos h2, #sobre h2, #tecnologia h2, #contato h2 {
-                font-size: 2rem;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .footer .container {
-                flex-direction: column;
-                gap: 1.5rem;
+                font-size: 1.8rem;
+                margin-bottom: 3rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 0 1rem;
+                gap: 1.5rem;
             }
 
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .placeholder-image {
-                font-size: 3rem;
+            .service-card {
+                padding: 1.5rem;
             }
 
             .service-icon {
                 width: 60px;
                 height: 60px;
                 font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .service-card p {
+                font-size: 0.9rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .about-text h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                padding-top: 2rem;
             }
 
             .stat h4 {
                 font-size: 1.5rem;
             }
 
+            .stat p {
+                font-size: 0.85rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .tech-item {
+                padding: 1.5rem;
+            }
+
             .tech-number {
                 font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .tech-item h3 {
+                font-size: 1.1rem;
+            }
+
+            .tech-item p {
+                font-size: 0.9rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                order: 2;
+            }
+
+            .contact-form {
+                order: 1;
+            }
+
+            .info-item {
+                margin-bottom: 1.5rem;
+            }
+
+            .info-item i {
+                font-size: 1.3rem;
+            }
+
+            .info-item h4 {
+                font-size: 0.95rem;
+            }
+
+            .info-item p {
+                font-size: 0.85rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.85rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-button {
+                padding: 0.85rem;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer {
+                padding: 1.5rem 0;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo i {
+                font-size: 1.5rem;
+            }
+
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.9rem;
+            }
+
+            .placeholder-image {
+                height: 250px;
+            }
+
+            #servicos, #tecnologia {
+                padding: 3rem 0;
+            }
+
+            #servicos h2, #sobre h2, #tecnologia h2, #contato h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .service-card {
+                padding: 1.25rem;
+            }
+
+            .service-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+
+            .service-card h3 {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.1rem;
+                margin-top: 1rem;
+            }
+
+            .about-text p {
+                font-size: 0.85rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .stats {
+                gap: 1rem;
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+            }
+
+            .stat h4 {
+                font-size: 1.3rem;
+            }
+
+            .stat p {
+                font-size: 0.8rem;
+            }
+
+            .tech-item {
+                padding: 1.25rem;
+            }
+
+            .tech-number {
+                font-size: 1.8rem;
+            }
+
+            .tech-item h3 {
+                font-size: 1rem;
+            }
+
+            .tech-item p {
+                font-size: 0.8rem;
+            }
+
+            .info-item {
+                gap: 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .info-item i {
+                font-size: 1.2rem;
+            }
+
+            .info-item h4 {
+                font-size: 0.9rem;
+            }
+
+            .info-item p {
+                font-size: 0.8rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .submit-button {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .success-message {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo span {
+                display: none;
+            }
+
+            .header-content {
+                padding: 0 0.75rem;
+            }
+
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero-content p {
+                font-size: 0.85rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+                width: 100%;
+            }
+
+            .placeholder-image {
+                height: 200px;
+            }
+
+            #servicos h2, #sobre h2, #tecnologia h2, #contato h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 0.95rem;
+            }
+
+            .nav-menu {
+                padding: 1rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0;
+                font-size: 0.9rem;
             }
         }
 
@@ -629,8 +954,8 @@
             <nav class="nav-menu" id="navMenu">
                 <a class="nav-link" onclick="scrollToSection('inicio'); return false;">Início</a>
                 <a class="nav-link" onclick="scrollToSection('servicos'); return false;">Serviços</a>
-                <a class="nav-link" onclick="scrollToSection('tecnologia'); return false;">Tecnologia</a>
                 <a class="nav-link" onclick="scrollToSection('sobre'); return false;">Sobre Nós</a>
+                <a class="nav-link" onclick="scrollToSection('tecnologia'); return false;">Tecnologia</a>
                 <a class="nav-link" onclick="scrollToSection('contato'); return false;">Contacto</a>
             </nav>
         </div>
@@ -714,42 +1039,6 @@
             </div>
         </section>
 
-        <!-- Seção: Tecnologia -->
-        <section id="tecnologia" class="page">
-            <div class="container">
-                <h2>Tecnologia Inovadora</h2>
-                <div class="tech-grid">
-                    
-                    <div class="tech-item">
-                        <div class="tech-number">01</div>
-                        <h3>AI Inteligente</h3>
-                        <p>Sistemas de inteligência artificial que aprendem seus hábitos e padrões.</p>
-                    </div>
-
-                    <div class="tech-item">
-                        <div class="tech-number">02</div>
-                        <h3>IoT Conectado</h3>
-                        <p>Integração completa com dispositivos smart home e assistentes virtuais.</p>
-                    </div>
-
-                    <div class="tech-item">
-                        <div class="tech-number">03</div>
-                        <h3>Análise Preditiva</h3>
-                        <p>Monitoramento preventivo que identifica problemas antes de ocorrerem.</p>
-                    </div>
-
-                    <div class="tech-item">
-                        <div class="tech-number">04</div>
-                        <h3>Criptografia Avançada</h3>
-                        <p>Protocolos de segurança bancária para máxima proteção de dados.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-
         <!-- Seção: Sobre Nós -->
         <section id="sobre" class="page">
             <div class="container">
@@ -786,6 +1075,39 @@
             </div>
         </section>
 
+        <!-- Seção: Tecnologia -->
+        <section id="tecnologia" class="page">
+            <div class="container">
+                <h2>Tecnologia Inovadora</h2>
+                <div class="tech-grid">
+                    
+                    <div class="tech-item">
+                        <div class="tech-number">01</div>
+                        <h3>AI Inteligente</h3>
+                        <p>Sistemas de inteligência artificial que aprendem seus hábitos e padrões.</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-number">02</div>
+                        <h3>IoT Conectado</h3>
+                        <p>Integração completa com dispositivos smart home e assistentes virtuais.</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-number">03</div>
+                        <h3>Análise Preditiva</h3>
+                        <p>Monitoramento preventivo que identifica problemas antes de ocorrerem.</p>
+                    </div>
+
+                    <div class="tech-item">
+                        <div class="tech-number">04</div>
+                        <h3>Criptografia Avançada</h3>
+                        <p>Protocolos de segurança bancária para máxima proteção de dados.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
         <!-- Seção: Contacto -->
         <section id="contato" class="page">
@@ -811,7 +1133,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@innovaportos.pt<br>suporte@innovaportos.pt</p>
+                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa6a1a9a08fa6a1a1a0b9aebfa0bdbba0bce1bfbb">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fb888e8b94898f9ebb929595948d9a8b94898f9488d58b8f">[email&#160;protected]</a></p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -856,7 +1178,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ============ MENU SANDWICH ============
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
@@ -893,16 +1215,4 @@
                 
                 const message = document.createElement('div');
                 message.className = 'success-message';
-                message.innerHTML = `✓ Mensagem enviada com sucesso! Obrigado pelo contacto.`;
-                
-                contactForm.appendChild(message);
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    message.remove();
-                }, 5000);
-            });
-        }
-    </script>
-</body>
-</html>
+               

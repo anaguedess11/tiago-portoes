@@ -17,14 +17,10 @@
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
-            --accent-color: #f59e0b;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
             --text-dark: #1e293b;
             --text-light: #64748b;
+            --light-bg: #f8fafc;
             --border-color: #e2e8f0;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
         }
 
         html {
@@ -41,16 +37,16 @@
             overflow-x: hidden;
         }
 
-        /* ============ HEADER E NAVEGAÇÃO ============ */
+        /* ============ HEADER ============ */
         .header {
             background: #ffffff;
-            box-shadow: none;
-            border-bottom: 1px solid #f0f0f0;
             position: sticky;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            padding: 1rem 0;
-            width: 100%;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .header-content {
@@ -59,8 +55,6 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
-            width: 100%;
         }
 
         .logo {
@@ -71,14 +65,14 @@
             font-weight: 700;
             color: var(--primary-color);
             white-space: nowrap;
-            flex-shrink: 0;
+            text-decoration: none;
         }
 
         .logo i {
             font-size: 1.8rem;
         }
 
-        /* Menu Sandwich */
+        /* Menu Sandwich - Só aparece no mobile */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -88,7 +82,6 @@
             gap: 5px;
             padding: 0;
             z-index: 1001;
-            margin-left: auto;
         }
 
         .menu-toggle span {
@@ -97,7 +90,6 @@
             background-color: var(--primary-color);
             border-radius: 2px;
             transition: all 0.3s ease;
-            display: block;
         }
 
         .menu-toggle.active span:nth-child(1) {
@@ -112,26 +104,21 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Menu de Navegação */
+        /* Navegação Desktop */
         .nav-menu {
             display: flex;
             gap: 2rem;
-            align-items: center;
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s ease;
             cursor: pointer;
             font-size: 0.9rem;
             padding: 0.5rem 0;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color);
+            position: relative;
         }
 
         .nav-link::after {
@@ -142,17 +129,20 @@
             width: 0;
             height: 2px;
             background-color: var(--primary-color);
-            transition: all 0.3s ease;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
         }
 
         .nav-link:hover::after {
             width: 100%;
         }
 
-        /* ============ SEÇÕES ============ */
-        .main-content {
-            margin: 0;
-            padding: 0;
+        /* Main Content */
+        main {
+            margin-top: 0;
         }
 
         .container {
@@ -161,8 +151,8 @@
             padding: 0 1rem;
         }
 
-        .page {
-            display: block !important;
+        section {
+            display: block;
             animation: fadeIn 0.5s ease-in;
         }
 
@@ -177,14 +167,13 @@
             }
         }
 
-        /* ============ HERO SECTION ============ */
+        /* ============ HERO ============ */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
             padding: 3rem 0;
-            min-height: auto;
         }
 
         .hero-content h1 {
@@ -192,7 +181,6 @@
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
-            color: var(--text-dark);
         }
 
         .hero-content p {
@@ -211,13 +199,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
 
         .cta-button:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
         }
 
         .hero-image {
@@ -236,7 +222,7 @@
             justify-content: center;
             color: white;
             font-size: 4rem;
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .placeholder-image.large {
@@ -250,7 +236,7 @@
             padding: 5rem 0;
         }
 
-        #servicos h2, #sobre h2, #tecnologia h2, #contato h2 {
+        h2 {
             font-size: 2.2rem;
             text-align: center;
             margin-bottom: 3rem;
@@ -270,13 +256,11 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow);
-            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .service-icon {
@@ -295,13 +279,11 @@
         .service-card h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
         }
 
         .service-card p {
             color: var(--text-light);
             font-size: 0.9rem;
-            line-height: 1.6;
         }
 
         /* ============ SOBRE ============ */
@@ -370,8 +352,8 @@
         }
 
         .tech-item:hover {
-            box-shadow: var(--shadow);
             transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .tech-number {
@@ -384,7 +366,6 @@
         .tech-item h3 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
-            color: var(--text-dark);
         }
 
         .tech-item p {
@@ -413,14 +394,12 @@
         .info-item i {
             font-size: 1.5rem;
             color: var(--primary-color);
-            margin-top: 0.2rem;
             flex-shrink: 0;
         }
 
         .info-item h4 {
             font-size: 0.95rem;
             margin-bottom: 0.5rem;
-            color: var(--text-dark);
         }
 
         .info-item p {
@@ -428,15 +407,10 @@
             font-size: 0.9rem;
         }
 
-        /* Formulário */
         .contact-form {
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
-        }
-
-        .form-group {
-            display: flex;
         }
 
         .form-group input,
@@ -475,7 +449,7 @@
 
         /* ============ FOOTER ============ */
         .footer {
-            background-color: var(--dark-bg);
+            background-color: #0f172a;
             color: white;
             padding: 2rem 0;
             text-align: center;
@@ -513,64 +487,36 @@
             margin-top: 1rem;
             text-align: center;
             font-weight: 600;
-            animation: slideUp 0.3s ease;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============ RESPONSIVE DESIGN ============ */
+        /* ============ RESPONSIVE ============ */
         @media (max-width: 768px) {
-            .header-content {
-                padding: 0 1rem;
-            }
-
-            .logo {
-                font-size: 1.1rem;
-            }
-
-            .logo i {
-                font-size: 1.5rem;
-            }
-
             .menu-toggle {
                 display: flex;
             }
 
             .nav-menu {
-                position: absolute;
+                display: none;
+                position: fixed;
                 top: 60px;
                 left: 0;
                 right: 0;
                 flex-direction: column;
                 background: white;
-                width: 100%;
-                padding: 1.5rem 1rem;
+                padding: 1rem;
                 gap: 0;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                align-items: flex-start;
             }
 
             .nav-menu.active {
-                max-height: 400px;
+                display: flex;
             }
 
             .nav-link {
                 width: 100%;
                 padding: 1rem 0;
-                font-size: 1rem;
                 border-bottom: 1px solid var(--border-color);
+                font-size: 1rem;
             }
 
             .nav-link::after {
@@ -580,28 +526,19 @@
             .hero {
                 grid-template-columns: 1fr;
                 padding: 2rem 0;
-                min-height: auto;
                 gap: 1.5rem;
             }
 
             .hero-content h1 {
                 font-size: 1.8rem;
-                margin-bottom: 0.8rem;
             }
 
             .hero-content p {
                 font-size: 0.95rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.8rem;
-                font-size: 0.9rem;
             }
 
             .placeholder-image {
                 height: 280px;
-                aspect-ratio: auto;
                 font-size: 3rem;
             }
 
@@ -614,11 +551,7 @@
                 gap: 2rem;
             }
 
-            #servicos, #tecnologia, #sobre, #contato {
-                padding: 3rem 0;
-            }
-
-            #servicos h2, #sobre h2, #tecnologia h2, #contato h2 {
+            h2 {
                 font-size: 1.7rem;
                 margin-bottom: 2rem;
             }
@@ -626,36 +559,21 @@
             .stats {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-                margin-top: 1.5rem;
-                padding-top: 1.5rem;
-            }
-
-            .stat h4 {
-                font-size: 1.4rem;
-            }
-
-            .tech-grid {
-                grid-template-columns: 1fr;
             }
 
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .footer .container {
                 flex-direction: column;
                 gap: 1rem;
             }
-
-            .footer p {
-                font-size: 0.85rem;
-            }
         }
 
         @media (max-width: 480px) {
-            .header-content {
-                padding: 0 0.75rem;
+            .header {
+                padding: 0.6rem 0.75rem;
             }
 
             .logo {
@@ -672,7 +590,6 @@
 
             .hero-content h1 {
                 font-size: 1.4rem;
-                margin-bottom: 0.6rem;
             }
 
             .hero-content p {
@@ -689,7 +606,7 @@
                 font-size: 2.5rem;
             }
 
-            #servicos h2, #sobre h2, #tecnologia h2, #contato h2 {
+            h2 {
                 font-size: 1.4rem;
                 margin-bottom: 1.5rem;
             }
@@ -702,15 +619,10 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.5rem;
-                margin-bottom: 1rem;
             }
 
             .service-card h3 {
                 font-size: 1rem;
-            }
-
-            .service-card p {
-                font-size: 0.8rem;
             }
 
             .about-text h3 {
@@ -724,17 +636,11 @@
             .tech-number {
                 font-size: 1.8rem;
             }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.75rem;
-                font-size: 0.85rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Header e Navegação -->
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
@@ -742,35 +648,31 @@
                 <span>InnovaPortões</span>
             </div>
             
-            <!-- Botão Sandwich -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <button class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             
-            <!-- Menu de Navegação -->
             <nav class="nav-menu" id="navMenu">
-                <a class="nav-link" onclick="scrollToSection('inicio'); return false;">Início</a>
-                <a class="nav-link" onclick="scrollToSection('servicos'); return false;">Serviços</a>
-                <a class="nav-link" onclick="scrollToSection('sobre'); return false;">Sobre Nós</a>
-                <a class="nav-link" onclick="scrollToSection('tecnologia'); return false;">Tecnologia</a>
-                <a class="nav-link" onclick="scrollToSection('contato'); return false;">Contacto</a>
+                <a class="nav-link" onclick="goToSection('inicio')">Início</a>
+                <a class="nav-link" onclick="goToSection('servicos')">Serviços</a>
+                <a class="nav-link" onclick="goToSection('sobre')">Sobre Nós</a>
+                <a class="nav-link" onclick="goToSection('tecnologia')">Tecnologia</a>
+                <a class="nav-link" onclick="goToSection('contato')">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="main-content">
-        
-        <!-- Seção: Início -->
-        <section id="inicio" class="page">
+    <main>
+        <!-- Início -->
+        <section id="inicio">
             <div class="container">
                 <div class="hero">
                     <div class="hero-content">
                         <h1>Portões Inteligentes para o Futuro</h1>
                         <p>Soluções inovadoras e modernas para residências e comércios</p>
-                        <button class="cta-button" onclick="scrollToSection('servicos')">Saiba Mais</button>
+                        <button class="cta-button" onclick="goToSection('servicos')">Saiba Mais</button>
                     </div>
                     <div class="hero-image">
                         <div class="placeholder-image" style="background: url('Fotografia0062.jpg') center/cover no-repeat;">
@@ -780,12 +682,11 @@
             </div>
         </section>
 
-        <!-- Seção: Serviços -->
-        <section id="servicos" class="page">
+        <!-- Serviços -->
+        <section id="servicos">
             <div class="container">
                 <h2>Nossos Serviços</h2>
                 <div class="services-grid">
-                    
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-cogs"></i>
@@ -833,13 +734,12 @@
                         <h3>Sustentabilidade</h3>
                         <p>Portões com eficiência energética e materiais eco-friendly.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Seção: Sobre Nós -->
-        <section id="sobre" class="page">
+        <!-- Sobre -->
+        <section id="sobre">
             <div class="container">
                 <h2>Sobre a InnovaPortões</h2>
                 <div class="about-content">
@@ -874,12 +774,11 @@
             </div>
         </section>
 
-        <!-- Seção: Tecnologia -->
-        <section id="tecnologia" class="page">
+        <!-- Tecnologia -->
+        <section id="tecnologia">
             <div class="container">
                 <h2>Tecnologia Inovadora</h2>
                 <div class="tech-grid">
-                    
                     <div class="tech-item">
                         <div class="tech-number">01</div>
                         <h3>AI Inteligente</h3>
@@ -903,13 +802,12 @@
                         <h3>Criptografia Avançada</h3>
                         <p>Protocolos de segurança bancária para máxima proteção de dados.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Seção: Contacto -->
-        <section id="contato" class="page">
+        <!-- Contacto -->
+        <section id="contato">
             <div class="container">
                 <h2>Entre em Contacto</h2>
                 <div class="contact-content">
@@ -932,7 +830,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b42454d446b424545445d4a5b44595f4458055b5f">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e1d1b1e011c1a0b2e07000001180f1e011c1a011d401e1a">[email&#160;protected]</a></p>
+                                <p>info@innovaportos.pt<br>suporte@innovaportos.pt</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -962,7 +860,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -977,44 +874,44 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // ============ MENU SANDWICH ============
+    <script>
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-        const navLinks = document.querySelectorAll('.nav-link');
 
-        // Toggle do menu
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // Fechar menu ao clicar fora
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.header-content')) {
+            if (!e.target.closest('.header')) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
             }
         });
 
-        // ============ SCROLL SUAVE ============
-        function scrollToSection(sectionId) {
+        function goToSection(sectionId) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
             const element = document.getElementById(sectionId);
             if (element) {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
                 element.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
-        // ============ FORMULÁRIO ============
         const contactForm = document.getElementById('contactForm');
-
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
                 const message = document.createElement('div');
                 message.className = 'success-message';
-               
+                message.innerHTML = `✓ Mensagem enviada com sucesso!`;
+                contactForm.appendChild(message);
+                contactForm.reset();
+                setTimeout(() => message.remove(), 5000);
+            });
+        }
+    </script>
+</body>
+</html>

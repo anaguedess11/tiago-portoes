@@ -38,12 +38,14 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         /* ============ HEADER E NAVEGAÇÃO ============ */
         .header {
             background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+            border-bottom: 1px solid #f0f0f0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -148,6 +150,11 @@
         }
 
         /* ============ SEÇÕES ============ */
+        .main-content {
+            margin: 0;
+            padding: 0;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -176,8 +183,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            padding: 4rem 0;
-            min-height: 500px;
+            padding: 3rem 0;
+            min-height: auto;
         }
 
         .hero-content h1 {
@@ -925,7 +932,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@innovaportos.pt<br>suporte@innovaportos.pt</p>
+                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b42454d446b424545445d4a5b44595f4458055b5f">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e1d1b1e011c1a0b2e07000001180f1e011c1a011d401e1a">[email&#160;protected]</a></p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -970,7 +977,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ============ MENU SANDWICH ============
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
@@ -1010,16 +1017,4 @@
                 
                 const message = document.createElement('div');
                 message.className = 'success-message';
-                message.innerHTML = `✓ Mensagem enviada com sucesso! Obrigado pelo contacto.`;
-                
-                contactForm.appendChild(message);
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    message.remove();
-                }, 5000);
-            });
-        }
-    </script>
-</body>
-</html>
+               

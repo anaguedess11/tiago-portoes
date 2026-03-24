@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>West Solutions - Soluções Inovadoras em Portões</title>
+    <title>West Solutions</title>
+    <link rel="icon" type="image/jpeg" href="west_solutions_logo.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -1017,7 +1018,6 @@
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
 
-        // Menu Mobile
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             menuToggle.classList.toggle('active');
@@ -1031,7 +1031,6 @@
             }
         });
 
-        // Fazer scroll para as secções
         function goToSection(sectionId) {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
@@ -1041,67 +1040,55 @@
             }
         }
 
-        // NOVA FUNÇÃO: Decide o que o botão "Pedir Orçamento" faz
         function acaoPedirOrcamento() {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
             
-            // Se a largura do ecrã for 768px ou menos (geralmente telemóveis e tablets)
             if (window.innerWidth <= 768) {
                 window.location.href = "tel:+351925196322";
             } else {
-                // Se for computador, vai para os contactos
                 goToSection('contato');
             }
         }
 
-        // Formulário de Contacto com Envio de Email
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
-                e.preventDefault(); // Impede a página de recarregar
+                e.preventDefault(); 
                 
                 const btn = document.querySelector('.submit-button');
                 const textoOriginal = btn.textContent;
-                btn.textContent = 'A enviar...'; // Mostra que está a processar
+                btn.textContent = 'A enviar...'; 
                 
-                // Recolhe os dados
-                const nome = contactForm.querySelector('input[name="nome"]').value;
-                const email = contactForm.querySelector('input[name="email"]').value;
-                const assunto = contactForm.querySelector('input[name="assunto"]').value;
-                const mensagem = contactForm.querySelector('textarea[name="mensagem"]').value;
+                const formData = new FormData(contactForm);
 
-                // Envia para o FormSubmit
-                fetch("https://formsubmit.co/ajax/westsolutions@sapo.pt", {
+                const urlFormspree = "https://formspree.io/f/mzdkprpz";
+
+                fetch(urlFormspree, {
                     method: "POST",
+                    body: formData,
                     headers: { 
-                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        Nome: nome,
-                        Email: email,
-                        Assunto: assunto,
-                        Mensagem: mensagem
-                    })
+                    }
                 })
-                .then(response => response.json())
-                .then(data => {
-                    // Mensagem de sucesso
-                    const message = document.createElement('div');
-                    message.className = 'success-message';
-                    message.innerHTML = `✓ Mensagem enviada com sucesso!`;
-                    contactForm.appendChild(message);
-                    
-                    // Limpa o formulário e restaura o botão
-                    contactForm.reset();
-                    btn.textContent = textoOriginal;
-                    
-                    // Remove a mensagem de sucesso ao fim de 5 segundos
-                    setTimeout(() => message.remove(), 5000);
+                .then(response => {
+                    if (response.ok) {
+                        const message = document.createElement('div');
+                        message.className = 'success-message';
+                        message.innerHTML = `✓ Mensagem enviada com sucesso! Em breve entraremos em contacto.`;
+                        contactForm.appendChild(message);
+                        
+                        contactForm.reset();
+                        btn.textContent = textoOriginal;
+                        
+                        setTimeout(() => message.remove(), 5000);
+                    } else {
+                        alert('Ocorreu um erro no envio. Por favor, tente novamente.');
+                        btn.textContent = textoOriginal;
+                    }
                 })
                 .catch(error => {
-                    alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou ligue-nos diretamente.');
+                    alert('Erro de ligação. Verifique a sua internet e tente novamente.');
                     btn.textContent = textoOriginal;
                 });
             });
